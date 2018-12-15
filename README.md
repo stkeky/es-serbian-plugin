@@ -1,2 +1,3 @@
 # es-serbian-plugin
-Elasticsearch plugin containing Serbian language analyzer
+
+Elasticsearch plugin containing Serbian language analyzer.
