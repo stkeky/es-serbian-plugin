@@ -12,13 +12,15 @@
 
   <properties>
     <elasticsearch.version>6.2.0</elasticsearch.version>
+    <lucene.version>7.2.1</lucene.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.apache.lucene</groupId>
       <artifactId>lucene-analyzers-common</artifactId>
-      <version>7.2.1</version>
+      <version>${lucene.version}</version>
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
@@ -27,6 +29,11 @@
       <artifactId>elasticsearch</artifactId>
       <version>${elasticsearch.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.8.1</version>
     </dependency>
   </dependencies>
 
