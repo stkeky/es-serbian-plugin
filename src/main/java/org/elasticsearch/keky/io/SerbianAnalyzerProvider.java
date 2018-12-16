@@ -10,9 +10,7 @@ public class SerbianAnalyzerProvider extends AbstractIndexAnalyzerProvider<Serbi
 
     private final SerbianAnalyzer analyzer;
 
-    static final String NAME = "serbian_analyzer";
-
-    public SerbianAnalyzerProvider(IndexSettings indexSettings, Environment environment, String name, Settings settings) {
+    SerbianAnalyzerProvider(IndexSettings indexSettings, Environment environment, String name, Settings settings) {
         super(indexSettings, name, settings);
 
         analyzer = new SerbianAnalyzer();

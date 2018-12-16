@@ -8,24 +8,24 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import java.io.IOException;
 
 public class LatCyrFilter extends TokenFilter {
-	
-	private CharTermAttribute cta;
-	
-	public LatCyrFilter(TokenStream input) {
-		super(input);
-		this.cta = (CharTermAttribute) input.addAttribute(CharTermAttribute.class); 
-	}
 
-	@Override
-	public boolean incrementToken() throws IOException {
-		if(input.incrementToken()){
-			String text = cta.toString();
-			cta.setEmpty();
-			cta.append(LatCyrUtils.toLatin(text));
-			return true;
-		}
-		
-		return false;
-	}
+    private CharTermAttribute cta;
+
+    LatCyrFilter(TokenStream input) {
+        super(input);
+        this.cta = input.addAttribute(CharTermAttribute.class);
+    }
+
+    @Override
+    public boolean incrementToken() throws IOException {
+        if (input.incrementToken()) {
+            final String text = cta.toString();
+            cta.setEmpty();
+            cta.append(LatinUtils.cyrToLatin(text));
+            return true;
+        }
+
+        return false;
+    }
 
 }

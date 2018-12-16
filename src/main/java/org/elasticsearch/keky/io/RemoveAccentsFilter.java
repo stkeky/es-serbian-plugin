@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package org.elasticsearch.keky.io;
 
 import org.apache.lucene.analysis.TokenFilter;
@@ -12,28 +6,22 @@ import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 
 import java.io.IOException;
 
-/**
- *
- * @author Milan Deket
- */
 public class RemoveAccentsFilter extends TokenFilter {
-    private LatCyrUtils LatCyrUtils;
+
     private CharTermAttribute termAttribute;
-    
-    public RemoveAccentsFilter(TokenStream input, boolean replaceDj) {
+
+    RemoveAccentsFilter(TokenStream input) {
         super(input);
-        replaceDj = true;
-	termAttribute = (CharTermAttribute) input.addAttribute(CharTermAttribute.class); 
+        termAttribute = input.addAttribute(CharTermAttribute.class);
     }
-    
-    
+
     @Override
     public boolean incrementToken() throws IOException {
         if (input.incrementToken()) {
-        	String text = termAttribute.toString();
-        	termAttribute.setEmpty();
-        	termAttribute.append(LatCyrUtils.removeAccents(text).replace("Dj", "D").replace("dj", "d"));
-        	return true;
+            final String text = termAttribute.toString();
+            termAttribute.setEmpty();
+            termAttribute.append(LatinUtils.removeAccents(text));
+            return true;
         }
         return false;
     }
