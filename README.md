@@ -1,20 +1,25 @@
+![](https://img.shields.io/badge/version-6.2.0-blue.svg?style=for-the-badge)
+
 # es-serbian-plugin
 
-Elasticsearch plugin providing support for Serbian language.
+*Elasticsearch* plugin providing support for Serbian language.
+
+## Version
+
+Version of the plugin will follow version of the *Elasticsearch* it can be used with.
 
 ## Description
 
-This plugin is used for preparing and analyzing text for indexing. It origin from [this repo][www:uddrepo] which was
+This plugin is used for preparing and analyzing text for indexing. It origins from [this repo][www:uddrepo] which was
 written based on following dependencies:
-- Apache Lucene **v4.9**
-- Elasticsearch **v1.3.2**
+- *Apache Lucene* **v4.9**
+- *Elasticsearch* **v1.3.2**
 
-Since these versions are highly outdated and unusable with newer versions of *Elasticsearch*, 
-plugin codebase was rewritten and adapted to use these dependencies:
-- Apache Lucene **v7.2.1**
-- Elasticsearch **v6.2.0**
+Since these versions are outdated, plugin codebase was rewritten and adapted to use these dependencies:
+- *Apache Lucene* **v7.2.1**
+- *Elasticsearch* **v6.2.0**
 
-Unused, deprecated and redundant code is removed. Several parts are optimized, mainly with the use of **Apache Commons Lang** library.
+Unused, deprecated and redundant code is removed. Several parts are optimized, mainly with the use of *Apache Commons Lang* library.
 
 ## Processing
 
@@ -35,20 +40,19 @@ mvn clean install
 
 ## Install
 
-To install build plugin to Elasticsearch run the following command:
+To install build plugin to *Elasticsearch* run the following command:
 ```
 elasticsearch-plugin install file:///path/to/plugin.zip
 ```
 
-Analyzer provided by this plugin can afterwards be used in Elasticsearch environment by invocation via
+Analyzer provided by this plugin can afterwards be used in *Elasticsearch* environment by invocation via
 **serbian-analyzer** name.
 
 ## Additional notes
 
 Original stemmer written in [Snowball][www:snowball] string processing language is provided in the
- `resources/serbian-stemmber.sbl`. But, with the latest *Snowball compiler* is unable to compile it without errors.
- Because of that already generated `SerbianStemmer` (generated earlier) was just slightly adapted so
- it can be used with these newer version of *Lucene* dependencies.
+ `resources/serbian-stemmber.sbl`. However, with the latest *Snowball compiler* it can't be compiled without errors.
+Because of that, already generated `SerbianStemmer` was just slightly adapted so it can be used with newer version of *Lucene* dependencies.
  
 
 [www:uddrepo]: https://github.com/chenejac/udd06
