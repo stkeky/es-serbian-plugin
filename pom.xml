@@ -6,7 +6,7 @@
 
   <groupId>keky.io</groupId>
   <artifactId>es-serbian-plugin</artifactId>
-  <version>1.0.0</version>
+  <version>6.2.0</version>
   <name>Elasticsearch Serbian Plugin</name>
   <description>Elasticsearch Serbian Plugin: Keky's adaptation</description>
 
